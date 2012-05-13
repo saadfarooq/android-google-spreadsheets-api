@@ -81,7 +81,7 @@ public class GoogleSpreadsheetActivity extends Activity {
 		String listfeedLink = worksheetEntry.getListFeedLink();
 //		List list = client.execute(new SpreadsheetUrl(listfeedLink));
 		ListFeed listFeed = client.executeGetListFeed(listfeedLink);
-		ListEntry listEntry = listFeed.getEntries().get(1);
+		ListEntry listEntry = listFeed.getEntries().get(0);
 //		String title = listEntry.title;
 //		String content = listEntry.content;
 		Map<String, String> cells = listEntry.getColumns();

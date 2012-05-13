@@ -2,17 +2,13 @@ package com.modbusgooey.spreadsheets;
 
 import java.io.IOException;
 
-import org.apache.http.auth.AuthenticationException;
-
 import android.accounts.AccountManager;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import com.google.api.client.extensions.android2.AndroidHttp;
 import com.google.api.client.googleapis.GoogleHeaders;
 import com.google.api.client.googleapis.MethodOverride;
-import com.google.api.client.googleapis.extensions.android2.auth.GoogleAccountManager;
 import com.google.api.client.http.HttpExecuteInterceptor;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
