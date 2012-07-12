@@ -4,10 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.util.Log;
+
 import com.google.api.client.util.Key;
 import com.google.api.client.xml.GenericXml;
 
 public class ListEntry extends GenericXml {
+	
+	public static final String TAG = "ListEntry";
 
 //	@Key("gs:cell")
 //	public Cell cell;
@@ -38,6 +42,10 @@ public class ListEntry extends GenericXml {
 		this.batchOperation = BatchOperation.UPDATE;
 	}
 	
+	/**
+	 * Returns the values of the columns as a Map using the Headers row values as keys
+	 * @return map of column values of the rows
+	 */
 	public Map<String, String> getColumns() {
 		
 		Map<String, String> cells = new HashMap<String, String>();
@@ -45,7 +53,13 @@ public class ListEntry extends GenericXml {
 		for (Entry<String, Object> entry : entrySet() ) {
 			String key = entry.getKey();
 			if (key.startsWith("gsx:")) {
-				cells.put(key.substring(4), ((Map)((List)entry.getValue()).get(0)).get("text()").toString());
+//				Log.i(TAG, "Key: "+ key.substring(4));
+//				if (entry.getValue() != null ) {
+					cells.put(key.substring(4), (String) ((Map)((List)entry.getValue()).get(0)).get("text()"));
+//				} else {
+//					cells.put(key.substring(4), "");
+//				}
+				
 //				((List)e.getValue()).get(0)).get("text()").toString(); 
 //				    cells.put(key.substring(4), value); 
 			}

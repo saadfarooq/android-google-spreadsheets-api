@@ -1,7 +1,12 @@
 package com.iubiquity.spreadsheets.client;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpRequest;
@@ -23,6 +28,7 @@ import com.iubiquity.spreadsheets.model.WorksheetEntry;
 import com.iubiquity.spreadsheets.model.WorksheetFeed;
 
 abstract public class SpreadsheetClient {
+	private static final String TAG = "SpreadsheetClient";
 
 	public static final XmlNamespaceDictionary DICTIONARY = new XmlNamespaceDictionary()
 			.set("", "http://www.w3.org/2005/Atom")
@@ -113,9 +119,9 @@ abstract public class SpreadsheetClient {
 		return executeInsert(entry, true);
 	}
 
-	<F extends Feed> F executeGetFeed(SpreadsheetUrl url, Class<F> feedClass)
+	<F extends Feed> F executeGetFeed(SpreadsheetUrl url, final Class<F> feedClass)
 			throws IOException {
-		HttpRequest request = requestFactory.buildGetRequest(url);
+		final HttpRequest request = requestFactory.buildGetRequest(url);
 		return request.execute().parseAs(feedClass);
 	}
 

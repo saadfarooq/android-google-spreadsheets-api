@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.iubiquity.spreadsheets.model.Feed;
 import com.iubiquity.spreadsheets.model.ListEntry;
 import com.iubiquity.spreadsheets.model.ListFeed;
 import com.iubiquity.spreadsheets.model.SpreadsheetEntry;
@@ -16,6 +17,7 @@ import com.iubiquity.spreadsheets.model.SpreadsheetFeed;
 import com.iubiquity.spreadsheets.model.WorksheetEntry;
 import com.iubiquity.spreadsheets.model.WorksheetFeed;
 import com.modbusgooey.spreadsheets.AndroidSpreadSheetClient;
+import com.modbusgooey.spreadsheets.AsyncSpreadsheetCaller;
 
 /**
  * Android Activity class that demonstrates the usage of the <i>Spreadsheet-api
@@ -23,7 +25,7 @@ import com.modbusgooey.spreadsheets.AndroidSpreadSheetClient;
  * 
  * @author Saad Farooq
  */
-public class GoogleSpreadsheetActivity extends Activity {
+public class GoogleSpreadsheetActivity extends Activity implements AsyncSpreadsheetCaller {
 
 	  private static final String TAG = "GoogleSpreadSheetActivity";
 
@@ -35,7 +37,7 @@ public class GoogleSpreadsheetActivity extends Activity {
 	  }
 	  
 	  @Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		  if (resultCode == Activity.RESULT_OK) {
 			  String authToken = data.getStringExtra("Token");
 			  try {
@@ -45,11 +47,11 @@ public class GoogleSpreadsheetActivity extends Activity {
 				e.printStackTrace();
 			}
 		  }
-	}
+	  }
 
 	private void getSpreadSheets(String authToken) throws IOException {
-		AndroidSpreadSheetClient client = new AndroidSpreadSheetClient(authToken);
-		client.createClient(this);
+		AndroidSpreadSheetClient client = new AndroidSpreadSheetClient(authToken, this);
+		client.createClient(this, "[company-id]-[app-name]-[app-version]");
 		
 		SpreadsheetFeed spreadSheetFeed = null;
 		
@@ -92,6 +94,17 @@ public class GoogleSpreadsheetActivity extends Activity {
 		
 		
 		
+		
+		
+	}
+
+	public void onSpreadsheetResult(int requestCode, Feed feed) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onExceptionResponse(Exception e) {
+		// TODO Auto-generated method stub
 		
 	}
 
