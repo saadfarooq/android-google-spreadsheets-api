@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".OAuthActivity" />
-        <activity android:name=".SpreadsheetMapper"/>
+        <activity android:name="com.github.spreadsheets.activity.SpreadsheetMapper"/>
     </application>
 
 </manifest>

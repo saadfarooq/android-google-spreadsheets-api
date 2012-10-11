@@ -1,4 +1,4 @@
-package com.google.sf;
+package com.github.spreadsheets.activity;
 
 import java.io.IOException;
 

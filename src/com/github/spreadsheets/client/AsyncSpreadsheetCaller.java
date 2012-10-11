@@ -1,4 +1,4 @@
-package com.modbusgooey.spreadsheets;
+package com.github.spreadsheets.client;
 
 import com.iubiquity.spreadsheets.model.Feed;
 

@@ -1,4 +1,4 @@
-package com.google.sf;
+package com.github.spreadsheets.activity;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.github.spreadsheets.client.AndroidSpreadsheetClient;
+import com.github.spreadsheets.client.AsyncSpreadsheetCaller;
 import com.iubiquity.spreadsheets.model.Feed;
 import com.iubiquity.spreadsheets.model.ListEntry;
 import com.iubiquity.spreadsheets.model.ListFeed;
@@ -16,8 +18,6 @@ import com.iubiquity.spreadsheets.model.SpreadsheetEntry;
 import com.iubiquity.spreadsheets.model.SpreadsheetFeed;
 import com.iubiquity.spreadsheets.model.WorksheetEntry;
 import com.iubiquity.spreadsheets.model.WorksheetFeed;
-import com.modbusgooey.spreadsheets.AndroidSpreadSheetClient;
-import com.modbusgooey.spreadsheets.AsyncSpreadsheetCaller;
 
 /**
  * Android Activity class that demonstrates the usage of the <i>Spreadsheet-api
@@ -50,7 +50,7 @@ public class GoogleSpreadsheetActivity extends Activity implements AsyncSpreadsh
 	  }
 
 	private void getSpreadSheets(String authToken) throws IOException {
-		AndroidSpreadSheetClient client = new AndroidSpreadSheetClient(authToken, this);
+		AndroidSpreadsheetClient client = new AndroidSpreadsheetClient(authToken, this);
 		client.createClient(this, "[company-id]-[app-name]-[app-version]");
 		
 		SpreadsheetFeed spreadSheetFeed = null;
@@ -87,15 +87,7 @@ public class GoogleSpreadsheetActivity extends Activity implements AsyncSpreadsh
 //		String title = listEntry.title;
 //		String content = listEntry.content;
 		Map<String, String> cells = listEntry.getColumns();
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
 	}
 
 	public void onSpreadsheetResult(int requestCode, Feed feed) {

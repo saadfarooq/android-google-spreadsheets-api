@@ -1,4 +1,4 @@
-package com.modbusgooey.spreadsheets;
+package com.github.spreadsheets.client;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ import com.iubiquity.spreadsheets.model.Feed;
 import com.iubiquity.spreadsheets.model.SpreadsheetFeed;
 import com.iubiquity.spreadsheets.model.SpreadsheetUrl;
 
-public class AndroidSpreadSheetClient extends SpreadsheetClient {
+public class AndroidSpreadsheetClient extends SpreadsheetClient {
 	private static final String TAG = "AndroidSpreadSheetClient";
 	private String authToken;
 	private AsyncSpreadsheetCaller caller;
@@ -48,7 +48,7 @@ public class AndroidSpreadSheetClient extends SpreadsheetClient {
 	 *            the interface which implements the callback method (the
 	 *            calling activity must implement this inteface)
 	 */
-	public AndroidSpreadSheetClient(String authToken,
+	public AndroidSpreadsheetClient(String authToken,
 			AsyncSpreadsheetCaller caller) {
 		this.caller = caller;
 		this.authToken = authToken;
