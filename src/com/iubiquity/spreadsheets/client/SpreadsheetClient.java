@@ -115,6 +115,15 @@ abstract public class SpreadsheetClient {
 		return addCellEntry(ce, new SpreadsheetUrl(link));
 	}
 
+	public WorksheetEntry addWorksheet(WorksheetEntry worksheetEntry,
+			SpreadsheetUrl worksheetfeedUrl) throws IOException {
+		AtomContent content = AtomContent.forEntry(DICTIONARY, worksheetEntry);
+		HttpRequest request = requestFactory.buildPostRequest(worksheetfeedUrl,
+				content);
+		// request.getHeaders().setIfNoneMatch(worksheetEntry.etag);
+		return request.execute().parseAs(worksheetEntry.getClass());
+	}
+
 	public CellEntry executeInsert(CellEntry entry) throws IOException {
 		return executeInsert(entry, true);
 	}

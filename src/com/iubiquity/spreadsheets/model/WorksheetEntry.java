@@ -12,17 +12,23 @@ public class WorksheetEntry extends Entry {
   @Key("app:edited")
   public String edited;
 
-  @Override
-  public WorksheetEntry clone() {
-    return (WorksheetEntry) super.clone();
-  }
+	@Key("gs:rowCount")
+	public int rowCount;
 
-  public String getListFeedLink() {
-    return content.src;
-  }
+	@Key("gs:colCount")
+	public int colCount;
 
-  public String getCellFeedLink() {
-    return Link.find(links, CELL_FEED);
-  }
+	@Override
+	public WorksheetEntry clone() {
+		return (WorksheetEntry) super.clone();
+	}
+
+	public String getListFeedLink() {
+		return content.src;
+	}
+
+	public String getCellFeedLink() {
+		return Link.find(links, CELL_FEED);
+	}
 
 }
