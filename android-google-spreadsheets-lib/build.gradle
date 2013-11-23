@@ -1,7 +1,24 @@
 apply plugin: 'android-library'
 
 dependencies {
-  compile 'com.android.support:support-v4:18.0.+'
+    compile project(':submodules:volley')
+    compile files(
+        'libs/google-http-client-xml-1.17.0-rc.jar'
+        ,'libs/google-api-client-1.17.0-rc.jar'
+        ,'libs/google-http-client-1.17.0-rc.jar'
+//        ,'libs/guava-11.0.1.jar'
+    )
+//    compile files('libs/google-api-client-1.8.0-beta.jar')
+//    compile files('libs/google-api-client-android2-1.8ea.0-beta.jar')
+//    compile files('libs/google-http-client-1.8.3-beta.jar')
+//    compile files('libs/google-http-client-android2-1.8.3-beta.jar')
+//    compile files('libs/google-http-client-android3-1.8.3-beta.jar')
+//    compile files('../libs/google-api-client-1.8.0-beta.jar')
+//    compile 'com.google.api-client:google-api-client-1.8.0-beta'
+//    compile 'com.google.api-client:google-api-client-android2:1.11.0-beta'
+//    compile 'com.google.http-client:google-http-client:1.8.3-beta'
+//    compile 'com.google.http-client:google-http-client-android2:1.11.0-beta'
+//    compile 'com.google.http-client:google-http-client-android3:1.11.0-beta'
 }
 
 android {
