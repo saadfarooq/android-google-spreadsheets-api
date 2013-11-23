@@ -1,0 +1,6 @@
+[submodule "submodules/volley"]
+	path = submodules/volley
+	url = https://android.googlesource.com/platform/frameworks/volley
+[submodule "submodules/spreadsheet-api"]
+	path = submodules/spreadsheet-api
+	url = git@github.com:sfarooq/spreadsheet-api.git
