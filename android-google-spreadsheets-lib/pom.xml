@@ -44,7 +44,7 @@
 
   <build>
     <sourceDirectory>src</sourceDirectory>
-    <testSourceDirectory>tests</testSourceDirectory>
+    <testSourceDirectory>src/tests</testSourceDirectory>
 
     <plugins>
       <plugin>

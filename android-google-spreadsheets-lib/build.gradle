@@ -1,41 +1,27 @@
 apply plugin: 'android-library'
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     compile project(':submodules:volley')
-    compile files(
-        'libs/google-http-client-xml-1.17.0-rc.jar'
-        ,'libs/google-api-client-1.17.0-rc.jar'
-        ,'libs/google-http-client-1.17.0-rc.jar'
-//        ,'libs/guava-11.0.1.jar'
-    )
-//    compile files('libs/google-api-client-1.8.0-beta.jar')
-//    compile files('libs/google-api-client-android2-1.8ea.0-beta.jar')
-//    compile files('libs/google-http-client-1.8.3-beta.jar')
-//    compile files('libs/google-http-client-android2-1.8.3-beta.jar')
-//    compile files('libs/google-http-client-android3-1.8.3-beta.jar')
-//    compile files('../libs/google-api-client-1.8.0-beta.jar')
-//    compile 'com.google.api-client:google-api-client-1.8.0-beta'
-//    compile 'com.google.api-client:google-api-client-android2:1.11.0-beta'
-//    compile 'com.google.http-client:google-http-client:1.8.3-beta'
-//    compile 'com.google.http-client:google-http-client-android2:1.11.0-beta'
-//    compile 'com.google.http-client:google-http-client-android3:1.11.0-beta'
+    compile 'com.google.http-client:google-http-client-xml:1.17.0-rc'
+    compile 'com.google.guava:guava:15.0'
 }
 
 android {
     compileSdkVersion 19
     buildToolsVersion '19'
 
-    sourceSets {
-        main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
-            resources.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
+    android.sourceSets {
+        defaultConfig {
+            testPackageName 'com.github.spreadsheets.android.api.tests'
         }
 
-        instrumentTest.setRoot('tests')
+        instrumentTest {
+            java.srcDir file('src/tests/java')
+            resources.srcDir file('src/tests/resources')
+        }
     }
 }
