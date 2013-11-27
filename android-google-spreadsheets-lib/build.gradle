@@ -8,6 +8,8 @@ dependencies {
     compile project(':submodules:volley')
     compile 'com.google.http-client:google-http-client-xml:1.17.0-rc'
     compile 'com.google.guava:guava:15.0'
+
+    instrumentTestCompile 'com.squareup:fest-android:1.0.7'
 }
 
 android {
@@ -22,6 +24,8 @@ android {
         instrumentTest {
             java.srcDir file('src/tests/java')
             resources.srcDir file('src/tests/resources')
+            assets.srcDirs = ["src/tests/assets"]
+            res.srcDirs    = ["src/tests/res"]
         }
     }
 }
