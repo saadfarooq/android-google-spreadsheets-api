@@ -4,9 +4,7 @@ import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.volley.NetworkResponse;
-import com.android.volley.Request;
 import com.android.volley.Response;
-import com.github.spreadsheets.android.api.model.Feed;
 import com.github.spreadsheets.android.api.model.SpreadsheetFeed;
 import com.github.spreadsheets.android.api.testutils.AssetsFileReader;
 
@@ -16,7 +14,7 @@ import java.util.Map;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 @SmallTest
-public class SpreadsheetRequestTest extends AndroidTestCase {
+public class SpreadsheetFeedRequestTest extends AndroidTestCase {
     private SpreadsheetRequest mRequest;
     private NetworkResponse mMockResponse;
     Map<String, String> headers = new HashMap<String, String>();
@@ -24,7 +22,7 @@ public class SpreadsheetRequestTest extends AndroidTestCase {
     @Override
     public void setUp() throws Exception {
         super.setUp();
-        mRequest = new SpreadsheetRequest<Feed>(Request.Method.GET, null, null);
+        mRequest = new SpreadsheetFeedRequest(null, null);
         String xml = new AssetsFileReader().assetFileContents("spreadsheet_feed.xml");
         headers.put(com.google.common.net.HttpHeaders.CONTENT_TYPE,
                     "application/atom+xml; charset=UTF-8");
