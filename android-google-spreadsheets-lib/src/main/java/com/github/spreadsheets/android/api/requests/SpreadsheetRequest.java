@@ -1,6 +1,5 @@
 package com.github.spreadsheets.android.api.requests;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -28,11 +27,11 @@ public abstract class SpreadsheetRequest<T> extends Request<T> {
         this.mListener = listener;
     }
 
-    SpreadsheetRequest(int method, String url, Object object, Listener<T> listener,
-                                                                    ErrorListener errorListener ) {
-        super(method, url, errorListener);
-        this.mListener = listener;
-    }
+//    SpreadsheetRequest(int method, String url, Object object, Listener<T> listener,
+//                                                                    ErrorListener errorListener ) {
+//        super(method, url, errorListener);
+//        this.mListener = listener;
+//    }
 
     @Override
     protected void deliverResponse(T response) {
@@ -42,8 +41,8 @@ public abstract class SpreadsheetRequest<T> extends Request<T> {
     @Override
     abstract protected Response<T> parseNetworkResponse(NetworkResponse response);
 
-    @Override
-    abstract public byte[] getBody() throws AuthFailureError;
+//    @Override
+//    abstract public byte[] getBody() throws AuthFailureError;
 
     @Override
     public String getBodyContentType() {
