@@ -29,6 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.github.spreadsheets.android.api.oauth.SpreadsheetOAuthActivity"/>
     </application>
 
 </manifest>

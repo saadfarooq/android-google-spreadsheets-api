@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 
 public class SpreadsheetFeedRequest extends SpreadsheetRequest<SpreadsheetFeed> {
 
-    SpreadsheetFeedRequest(Listener<SpreadsheetFeed> listener, ErrorListener errorListener) {
+    public SpreadsheetFeedRequest(Listener<SpreadsheetFeed> listener, ErrorListener errorListener) {
         super(Method.GET,
                 "https://spreadsheets.google.com/feeds/spreadsheets/private/full",
                 listener,

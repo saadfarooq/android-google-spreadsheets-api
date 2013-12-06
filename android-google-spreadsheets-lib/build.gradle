@@ -8,6 +8,7 @@ dependencies {
     compile project(':submodules:volley')
     compile 'com.google.http-client:google-http-client-xml:1.17.0-rc'
     compile 'com.google.guava:guava:15.0'
+    compile 'com.google.android.gms:play-services:4.0.30'
 
     instrumentTestCompile 'com.squareup:fest-android:1.0.7'
 }
