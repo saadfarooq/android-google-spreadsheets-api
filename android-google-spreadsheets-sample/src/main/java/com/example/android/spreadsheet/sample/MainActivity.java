@@ -34,13 +34,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String saad;
-        SpreadsheetOAuth.setAuthToken("saad");
-        try {
-            saad = SpreadsheetOAuth.getAuthToken();
-        } catch (AuthFailureError authFailureError) {
-            authFailureError.printStackTrace();
-        }
+//        String saad;
+//        SpreadsheetOAuth.setAuthToken("saad");
+//        try {
+//            saad = SpreadsheetOAuth.getAuthToken();
+//        } catch (AuthFailureError authFailureError) {
+//            authFailureError.printStackTrace();
+//        }
 
         final Button btnGetAccess = (Button) findViewById(R.id.btn_oauth);
         btnGetAccess.setOnClickListener(this);
@@ -64,7 +64,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                 Log.d("TAG", error.getMessage());
+                Log.d("TAG", error.getMessage());
                 Toast.makeText(MainActivity.this, "Request failed", Toast.LENGTH_LONG).show();
             }
         };
@@ -72,7 +72,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private Spinner initializeSpinner(int id, String[] values) {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                                                    android.R.layout.simple_spinner_item, values);
+                android.R.layout.simple_spinner_item, values);
         Spinner spinner = (Spinner) findViewById(id);
         spinner.setAdapter(adapter);
         return spinner;
@@ -90,15 +90,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.btn_oauth:
                 int accountIndex = mAccountTypesSpinner.getSelectedItemPosition();
                 if (accountIndex < 0) {
                     // this happens when the sample is run in an emulator which has no google account
                     // added yet.
                     Toast.makeText(this,
-                                "No account available. Please add an account to the phone first.",
-                                Toast.LENGTH_LONG).show();
+                            "No account available. Please add an account to the phone first.",
+                            Toast.LENGTH_LONG).show();
                     return;
                 }
                 getToken(mNamesArray[accountIndex]);
@@ -110,7 +110,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         final Intent intent = new Intent(this, SpreadsheetOAuthActivity.class);
         intent.putExtra(SpreadsheetOAuthActivity.EXTRA_EMAIL, email);
         intent.putExtra(SpreadsheetOAuthActivity.EXTRA_SCOPE, SpreadsheetOAuth.READ_WRITE_SCOPE);
-        startActivityForResult(intent,REQUEST_CODE_OAUTH_ACTIVITY);
+        startActivityForResult(intent, REQUEST_CODE_OAUTH_ACTIVITY);
     }
 
     @Override
@@ -122,7 +122,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     break;
 
                 case RESULT_CANCELED:
-                    Log.d("TAG", "Awww");
                     String msg = data.getStringExtra(SpreadsheetOAuthActivity.EXTRA_RESULT_MESSAGE);
                     Toast.makeText(MainActivity.this, msg, Toast.LENGTH_LONG).show();
                     break;

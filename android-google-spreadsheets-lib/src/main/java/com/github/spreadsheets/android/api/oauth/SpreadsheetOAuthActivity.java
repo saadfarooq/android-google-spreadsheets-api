@@ -31,6 +31,7 @@ public class SpreadsheetOAuthActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
         if (bundle.containsKey(EXTRA_EMAIL) && bundle.containsKey(EXTRA_SCOPE)) {
             scope = bundle.getString(EXTRA_SCOPE);
             email = bundle.getString(EXTRA_EMAIL);
@@ -71,7 +72,6 @@ public class SpreadsheetOAuthActivity extends Activity {
             final Intent intent = new Intent();
             intent.putExtra(EXTRA_TOKEN, token);
             setResult(RESULT_OK, intent);
-            finish();
         } catch (GooglePlayServicesAvailabilityException playEx) {
             final Intent intent = new Intent();
             intent.putExtra(EXTRA_RESULT_MESSAGE, "GooglePlayServicesAvailable");
@@ -81,7 +81,6 @@ public class SpreadsheetOAuthActivity extends Activity {
             // getIntent()
             startActivityForResult(userAuthEx.getIntent(), REQUEST_CODE_RECOVER_FROM_AUTH_ERROR);
             setResult(RESULT_OK);
-            finish();
         } catch (IOException transientEx) {
             // network or server error, the call is expected to succeed if you try again later.
             // Don't attempt to call again immediately - the request is likely to
@@ -89,7 +88,6 @@ public class SpreadsheetOAuthActivity extends Activity {
             final Intent intent = new Intent();
             intent.putExtra(EXTRA_RESULT_MESSAGE, "IOException");
             setResult(RESULT_CANCELED, intent);
-            finish();
         } catch (GoogleAuthException authEx) {
             // Failure. The call is not expected to ever succeed so it should not be
             // retried.
@@ -97,7 +95,7 @@ public class SpreadsheetOAuthActivity extends Activity {
             intent.putExtra(EXTRA_RESULT_MESSAGE, "GoogleAuthException");
             setResult(RESULT_CANCELED, intent);
         }
-
+        finish();
     }
 
     void getAndUseAuthTokenInAsyncTask() {

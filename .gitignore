@@ -5,7 +5,7 @@
 .checkstyle
 
 # IntelliJ IDEA
-.idea
+.idea/
 *.iml
 *.ipr
 *.iws
@@ -14,8 +14,7 @@ gen-external-apklibs
 
 # Gradle
 .gradle/
-build/
-*/build/
+*/build
 gradle/
 gradlew
 gradlew.bat
@@ -40,5 +39,3 @@ tmp
 
 # Website
 website/
-
-android-google-spreadsheets-samples/
