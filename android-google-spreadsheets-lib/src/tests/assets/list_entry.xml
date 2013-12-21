@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<entry xmlns='http://www.w3.org/2005/Atom'
+    xmlns:gsx='http://schemas.google.com/spreadsheets/2006/extended'>
+    <id>https://spreadsheets.google.com/feeds/list/tVYukALjr4jLjzBVH9xDGdQ/od6/private/full/cokwr
+    </id>
+    <updated>2013-12-21T23:03:44.045Z</updated>
+    <category scheme='http://schemas.google.com/spreadsheets/2006'
+        term='http://schemas.google.com/spreadsheets/2006#list' />
+    <title type='text'>A2</title>
+    <content type='text'>b1: B2, c1: C2</content>
+    <link rel='self' type='application/atom+xml'
+        href='https://spreadsheets.google.com/feeds/list/tVYukALjr4jLjzBVH9xDGdQ/od6/private/full/cokwr' />
+    <link rel='edit' type='application/atom+xml'
+        href='https://spreadsheets.google.com/feeds/list/tVYukALjr4jLjzBVH9xDGdQ/od6/private/full/cokwr/6ipgkep1hc' />
+    <gsx:a1>A2</gsx:a1>
+    <gsx:b1>B2</gsx:b1>
+    <gsx:c1>C2</gsx:c1>
+</entry>
