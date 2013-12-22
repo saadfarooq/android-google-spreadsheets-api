@@ -23,7 +23,7 @@ public class List {
 
     public void batchUpdate(String value) {
         this.cell.value = value;
-        this.batchId = this.id;
+//        this.batchId = this.id;
         this.batchOperation = BatchOperation.UPDATE;
     }
 

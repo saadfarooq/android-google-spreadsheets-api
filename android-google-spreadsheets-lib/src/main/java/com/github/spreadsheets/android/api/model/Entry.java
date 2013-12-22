@@ -25,22 +25,6 @@ public class Entry implements Cloneable {
     return Data.clone(this);
   }
 
-//  public void executeDelete() throws IOException {
-//    HttpRequest request = Util.TRANSPORT.buildDeleteRequest();
-//    request.setUrl(getEditLink());
-//    RedirectHandler.execute(request).ignore();
-//  }
-
-//  Entry executeInsert(SpreadsheetUrl url) throws IOException {
-//    HttpRequest request = Util.TRANSPORT.buildPostRequest();
-//    request.url = url;
-//    AtomContent content = new AtomContent();
-//    content.namespaceDictionary = Util.DICTIONARY;
-//    content.entry = this;
-//    request.content = content;
-//    return RedirectHandler.execute(request).parseAs(getClass());
-//  }
-
   public String getEditLink() {
     return Link.find(links, "edit");
   }
